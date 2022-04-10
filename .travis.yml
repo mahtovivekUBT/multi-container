@@ -1,3 +1,5 @@
+# This file has to be in the root directory of the repo
+
 sudo: required
 services:
   - docker
@@ -8,7 +10,7 @@ services:
 # for others like client,worker etc.
 
 before_install:
-  -docker build -t mahtovivek741/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t mahtovivek741/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true mahtovivek741/react-test npm test
