@@ -30,3 +30,15 @@ after_success:
   - docker push mahtovivek741/multi-nginx
   - docker push mahtovivek741/multi-server
   - docker push mahtovivek741/multi-worker
+
+  deploy:
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: multi-container
+    env: Multicontainer-env
+    bucket_name: elasticbeanstalk-us-east-2-714047344597
+    bucket_path: docker-cont
+    on:
+      branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
