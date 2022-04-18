@@ -16,6 +16,7 @@ script:
   - docker run -e CI=true mahtovivek741/react-test npm test
 
 after_success:
+  # Some issue with building the multi-client image
   - docker build -t mahtovivek741/multi-client ./client
   - docker build -t mahtovivek741/multi-nginx ./nginx
   - docker build -t mahtovivek741/multi-server ./server
