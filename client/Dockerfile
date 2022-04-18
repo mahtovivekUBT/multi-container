@@ -4,7 +4,8 @@ COPY package.json .
 RUN npm install
 COPY . .
 
-CMD ["npm","run","build"]
+RUN npm run build
+# Earlier I wrote CMD ["npm","run","build"] here, which is incorrect because that is the startup command when docker starts
 
 
 FROM nginx
